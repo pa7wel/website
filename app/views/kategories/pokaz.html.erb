@@ -1,27 +1,29 @@
-<h1>Pokaż Kategorię</h1>
+<div class="hero-unit">
+	<h1>Pokaż Kategorię</h1>
 
-<%= link_to("powrót", {:action => 'index'})%>
-
-<table>
-	<tr>
-		<th>nazwa</th>
-		<td><%= @kategoria.nazwa%></td>
-	</tr>
-	<tr>
-		<th>pozycja</th>
-		<td><%= @kategoria.pozycja%></td>
-	</tr>
-	<tr>
-		<th>czy widoczna ?</th>
-		<td><%= @kategoria.widoczna ? 'Tak': 'Nie'%></td>
-	</tr>
-	<tr>
-		<th>data utworzenia:</th>
-		<td><%= @kategoria.created_at %></td>
-	</tr>
-	<tr>
-		<th>aktualizacja:</th>
-		<td><%= @kategoria.updated_at %></td>
-	</tr>
-
-</table>>
+	<table class="table table-striped">
+		<tr>
+			<th>nazwa</th>
+			<td><%= @kategoria.nazwa%></td>
+		</tr>
+		<tr>
+			<th>pozycja</th>
+			<td><%= @kategoria.pozycja%></td>
+		</tr>
+		<tr>
+			<th>czy widoczna ?</th>
+			<td><%= @kategoria.widoczna ? 'Tak': 'Nie'%></td>
+		</tr>
+		<tr>
+			<th>data utworzenia:</th>
+			<td><%= @kategoria.created_at %></td>
+		</tr>
+		<tr>
+			<th>aktualizacja:</th>
+			<td><%= @kategoria.updated_at %></td>
+		</tr>
+	</table>>
+	<div style="text-align: center;">
+		<%= link_to("Powrot", {:action => 'index'}, :class => 'btn btn-primary')%>
+	</div>
+</div>

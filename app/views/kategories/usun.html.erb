@@ -1,6 +1,5 @@
+<div class="hero-unit">
 <h1>Usunięcie kategori</h1>
-
-<%= link_to("powrót", {:action => 'index'})%>
 
 <%= form_for(:kategoria, :url => {:action => 'kasuj', 
 	:id => @kategoria.id}) do |pole|%>
@@ -9,7 +8,11 @@
 	<p><%= @kategoria.nazwa %></p>
 
 <div>
-	<%= submit_tag("Usuń")%>
+	<%= submit_tag("Usuń", :class => 'btn btn-danger')%>
+	<%= link_to("powrót", {:action => 'index'}, :class => 'btn btn-primary')%>
 </div>
 
+
 <% end %>
+
+</div>

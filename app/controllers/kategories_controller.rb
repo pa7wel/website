@@ -1,6 +1,6 @@
 class KategoriesController < ApplicationController
 
-  layout false
+  layout 'admin'
 
   def index
     # @kategorie - zawiera rekordy wyciagniete z bazy danych 
@@ -20,6 +20,7 @@ class KategoriesController < ApplicationController
   def utworz
     @kategorie = Kategorie.new(kategorie_param)
     if @kategorie.save
+      flash[:notice] = "Kategoria zostala pomyslnie utworzona."
       redirect_to(:action => 'index')
     else
       @licznik = Kategorie.count + 1
@@ -38,12 +39,14 @@ class KategoriesController < ApplicationController
 
   def kasuj
     kategoria = Kategorie.find(params[:id]).destroy
+    flash[:notice] = "Kategoria zostala pomyslnie usunieta."
     redirect_to(:action => 'index')
   end
 
   def aktualizuj
       @kategoria = Kategorie.find(params[:id])
     if @kategoria.update_attributes(kategorie_param)
+      flash[:notice] = "Kategoria zostala pomyslnie zaktualizowana."
       redirect_to(:action => 'pokaz', :id => @kategoria.id)
     else
       @licznik = Kategorie.count
@@ -55,7 +58,5 @@ class KategoriesController < ApplicationController
     params.require(:kategoria).permit(:nazwa, :pozycja, 
       :widoczna, :created_at)
   end
-
- 
 
 end

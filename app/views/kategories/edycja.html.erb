@@ -1,14 +1,17 @@
-<h1>Edycja kategori</h1>
 
-<%= form_for(:kategoria, :url => {:action => 'aktualizuj',
+<div class="hero-unit">
+	<h1>Edycja kategori</h1>
+
+	<%= form_for(:kategoria, :url => {:action => 'aktualizuj',
 	:id => @kategoria.id}) do |pole|%>
 
-<%= render(:partial => "form", :locals => {:pole => pole})%>
-
-</table>
-
-<div>
-	<%= submit_tag("aktualizuj")%>
-</div>
+	<%= render(:partial => "form", :locals => {:pole => pole})%>
+	<div style="text-align: center;">
+		<%= link_to("anuluj", {:action => 'index'}, 
+			:class => 'btn btn-warning')%>
+	<%= submit_tag("aktualizuj", :class => 'btn btn-primary')%>
+	</div>
 
 <% end %>
+
+</div>

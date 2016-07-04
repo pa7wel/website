@@ -1,32 +1,33 @@
-<h1>Kategories#index</h1>
+<div class="hero-unit">
+	<h1>Kategorie</h1>
+	<%= link_to("Dodaj nową kategorię", {:action => 'nowa'}, :class => 'btn btn-mini btn-primary')%>
+	<p style="text-align: right;">Ilość kategorii: <%= @kategorie.size %> </p>
 
-<%= link_to("Dodaj nową kategorię", {:action => 'nowa'})%>
+	<table class="table table-striped">
+		<tr class="info">
+			<th>pozycja</th>
+			<th>nazwa katergori</th>
+			<th>widoczna</th>
+			<th>strony</th>
+			<th>akcje</th>
+		</tr>
+	<% @kategorie.each do |kat| %>
+		<tr>
+			<td><%= kat.pozycja %></td>
+			<td><%= kat.nazwa %></td>
+			<td class="center"><%= status_widoku(kat.widoczna) %></td>
+			<td class="center"><%= kat.stronas.size%></td>
+			<td class="actions">
+				<%= link_to("Wyświetl", {:action => 'pokaz', 
+				:id => kat.id}, :class => 'btn btn-xs btn btn-default')%>	
+				<%= link_to("Edycja", {:action => 'edycja', :id => kat.id},
+				:class => 'btn btn-xs btn btn-primary')%>
+				<%= link_to("Usuń", {:action => 'usun', 
+				:id => kat.id}, :class => 'btn btn-xs btn btn-danger')%>
+			</td>
+		</tr>
+	<%end%>	
 
-<p>Ilość kategorii: <%= @kategorie.size %> </p>
+	</table>
 
-<table>
-	<tr>
-		<th>pozycja</th>
-		<th>nazwa katergori</th>
-		<th>widoczna</th>
-		<th>strony</th>
-		<th>akcje</th>
-	</tr>
-<% @kategorie.each do |kat| %>
-	<tr>
-		<th><%= kat.pozycja %></th>
-		<th><%= kat.nazwa %></th>
-		<th><%= kat.widoczna ? 'Tak' : 'Nie'%></th>
-		<th><%= kat.stronas.size%></th>
-		<th>
-			<%= link_to("Wyświetl", {:action => 'pokaz', 
-				:id => kat.id})%>	
-			<%= link_to("Edycja", {:action => 'edycja',
-				:id => kat.id})%>
-			<%= link_to("Usuń", {:action => 'usun', 
-				:id => kat.id})%>		
-		</th>
-	</tr>
-<%end%>	
-
-</table>
+</div>
