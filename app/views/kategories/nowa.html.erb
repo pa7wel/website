@@ -1,0 +1,15 @@
+<h1>Nowa kategoria</h1>
+
+<%= link_to("powrot", :action => 'index')%>
+
+<%= form_for(:kategoria, :url => {:action => 'utworz'}) do 
+	|pole| %>
+
+<%= render(:partial => "form", :locals => {:pole => pole}) %>
+
+<div>
+	<%= submit_tag("utwórz")%>
+</div>
+
+
+<% end %>

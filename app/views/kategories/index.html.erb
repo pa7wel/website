@@ -1,0 +1,32 @@
+<h1>Kategories#index</h1>
+
+<%= link_to("Dodaj nową kategorię", {:action => 'nowa'})%>
+
+<p>Ilość kategorii: <%= @kategorie.size %> </p>
+
+<table>
+	<tr>
+		<th>pozycja</th>
+		<th>nazwa katergori</th>
+		<th>widoczna</th>
+		<th>strony</th>
+		<th>akcje</th>
+	</tr>
+<% @kategorie.each do |kat| %>
+	<tr>
+		<th><%= kat.pozycja %></th>
+		<th><%= kat.nazwa %></th>
+		<th><%= kat.widoczna ? 'Tak' : 'Nie'%></th>
+		<th><%= kat.stronas.size%></th>
+		<th>
+			<%= link_to("Wyświetl", {:action => 'pokaz', 
+				:id => kat.id})%>	
+			<%= link_to("Edycja", {:action => 'edycja',
+				:id => kat.id})%>
+			<%= link_to("Usuń", {:action => 'usun', 
+				:id => kat.id})%>		
+		</th>
+	</tr>
+<%end%>	
+
+</table>

@@ -1,0 +1,14 @@
+<h1>Edycja kategori</h1>
+
+<%= form_for(:kategoria, :url => {:action => 'aktualizuj',
+	:id => @kategoria.id}) do |pole|%>
+
+<%= render(:partial => "form", :locals => {:pole => pole})%>
+
+</table>
+
+<div>
+	<%= submit_tag("aktualizuj")%>
+</div>
+
+<% end %>
