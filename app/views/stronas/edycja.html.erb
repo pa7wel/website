@@ -1,0 +1,13 @@
+<div class="hero-unit">
+<h1>Edycja strony: <%= @strona.nazwa %></h1>
+
+<%= form_for(:strona, :url => {:action => 'aktualizuj', :id => @strona.id}) do |pole| %>
+
+<%= render(:partial => "form", :locals => {:pole => pole})%>
+
+<div style="text-align: center;">
+	<%= link_to("anuluj", {:action => 'index'}, :class => 'btn btn-warning')%>
+	<%= submit_tag("aktualizuj", :class => 'btn btn-primary')%>
+
+<% end %>
+</div>

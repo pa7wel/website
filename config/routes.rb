@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'stronas/index'
+
+  get 'stronas/pokaz'
+
+  get 'stronas/nowa'
+
+  get 'stronas/edycja'
+
+  get 'stronas/usun'
+
   get 'kategories/index'
 
   get 'kategories/pokaz'

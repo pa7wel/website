@@ -1,0 +1,36 @@
+<dev class="hero-info">
+
+<h1>Pokaz strone</h1>
+
+<table class="table table-striped">
+	<tr>
+		<th>kategoria</th>
+		<td><%= @strona.kategorie.nazwa %></td>
+	</tr>
+	<tr>
+		<th>nazwa</th>
+		<td><%= @strona.nazwa %></td>
+	</tr>
+	<tr>
+		<th>pozycja</th>
+		<td><%= @strona.pozycja %></td>
+	</tr>
+	<tr>
+		<th>Czy widoczna</th>
+		<td><%= @strona.pozycja %></td>
+	</tr>
+	<tr>
+		<th>utworzona:</th>
+		<td><%= @strona.created_at %></td>
+	</tr>
+	<tr>
+		<th>aktualizacja:</th>
+		<td><%= @strona.updated_at %></td>
+	</tr>
+</table>
+
+<div style="text-align: center;">
+<%= link_to("powrot", {:action => 'index'}, :class => 'btn btn-warning')%>
+</div>
+
+</dev>

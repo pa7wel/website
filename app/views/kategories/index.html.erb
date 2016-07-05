@@ -18,11 +18,11 @@
 			<td class="center"><%= status_widoku(kat.widoczna) %></td>
 			<td class="center"><%= kat.stronas.size%></td>
 			<td class="actions">
-				<%= link_to("Wyświetl", {:action => 'pokaz', 
+				<%= link_to("wyświetl", {:action => 'pokaz', 
 				:id => kat.id}, :class => 'btn btn-xs btn btn-default')%>	
-				<%= link_to("Edycja", {:action => 'edycja', :id => kat.id},
+				<%= link_to("edycja", {:action => 'edycja', :id => kat.id},
 				:class => 'btn btn-xs btn btn-primary')%>
-				<%= link_to("Usuń", {:action => 'usun', 
+				<%= link_to("usuń", {:action => 'usun', 
 				:id => kat.id}, :class => 'btn btn-xs btn btn-danger')%>
 			</td>
 		</tr>
