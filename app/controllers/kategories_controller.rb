@@ -1,6 +1,7 @@
 class KategoriesController < ApplicationController
 
   layout 'admin'
+  before_action :sprawdz_logowanie
 
   def index
     # @kategorie - zawiera rekordy wyciagniete z bazy danych 
