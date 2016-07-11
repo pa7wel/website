@@ -1,0 +1,15 @@
+<div class="hero-unit">
+<h1>Nowa galeria</h1>
+
+<%= form_for(:galeria, :url => {:action => 'utworz'}) do |pole| %>
+
+<%= render(:partial => "form", :locals => {:pole => pole}) %>
+
+<div style="text-align: center;">
+	<%= link_to("powrót", {:action => 'index'}, :class => 'btn btn-primary')%>
+	<%= submit_tag("utwórz", :class => 'btn btn-success')%>
+</div>
+
+<% end %>
+
+</div>

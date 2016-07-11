@@ -21,10 +21,10 @@ class KategoriesController < ApplicationController
     @kategorie = Kategorie.new(kategorie_param)
     if @kategorie.save
       flash[:notice] = "Kategoria zostala pomyslnie utworzona."
-      redirect_to(:action => 'index')
+      redirect_to(:action => "index")
     else
       @licznik = Kategorie.count + 1
-      render('nowa')
+      render("nowa")
     end
   end
 
@@ -40,7 +40,7 @@ class KategoriesController < ApplicationController
   def kasuj
     kategoria = Kategorie.find(params[:id]).destroy
     flash[:notice] = "Kategoria zostala pomyslnie usunieta."
-    redirect_to(:action => 'index')
+    redirect_to(:action => "index")
   end
 
   def aktualizuj
@@ -50,7 +50,7 @@ class KategoriesController < ApplicationController
       redirect_to(:action => 'pokaz', :id => @kategoria.id)
     else
       @licznik = Kategorie.count
-      render('edycja') 
+      render("edycja") 
     end
   end
 

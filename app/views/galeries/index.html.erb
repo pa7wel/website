@@ -1,0 +1,29 @@
+<div class="hero-unit">
+<h1>Galerie</h1>
+
+<%= link_to("Dodaj nową galerię", {:action => 'nowa'}, :class => 'btn btn-primary')%>
+<p> Ilość galeri <%= @galeria.size %></p>
+
+<table class="table table-stripped">
+	<tr class="info">
+		<th>pozycja</th>
+		<th>nazwa</th>
+		<th>widoczna</th>
+		<th>akcja</th>
+	</tr>
+		
+<%= @galeria.each do |pole|%>
+	<tr>
+		<td><%= pole.pozycja %></td>
+		<td><%= pole.nazwa %></td>
+		<td class="center"><%= status_widoku(pole.widoczna) %></td>
+		<td class="action">
+			<%= link_to("pokaż", {:action => 'pokaz', :id => pole.id }, :class => 'btn btn-xs btn-primary') %>
+			<%= link_to("edycja", {:action => 'edycja', :id => pole.id}, :class => 'btn btn-xs btn-warning')%>
+			<%= link_to("usuń", {:action => 'usun', :id => pole.id}, :class => 'btn btn-xs btn-danger')%>	
+		</td>
+	</tr>
+<% end %>
+</table>
+
+</div>

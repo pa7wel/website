@@ -1,0 +1,32 @@
+<div class="her-unit">
+
+<h1>Artykuly</h1>
+
+	<%= link_to("nowy artykul", {:action => 'nowy'}, :class => 'btn btn-primary')%>
+	<p style="text-align: right;">ilosc artykulow: <%= @artykuly.size%></p>
+
+	<table class="table table-stripped">
+		<tr class="info">
+			<th>pozycja</th>
+			<th>strona</th>
+			<th>tytul artykulu</th>
+			<th>widoczny</th>
+			<th>akcja</th>
+		</tr>
+		<%= @artykuly.each do |pole| %>
+		<tr>
+			<td><%= pole.pozycja %></td>
+			<td><%= pole.strona.nazwa %></td>
+			<td><%= pole.nazwa %></td>
+			<td class="center"><%= status_widoku(pole.widoczny)%></td>
+			<td class="actions">
+				<%= link_to("pokaz", {:action => 'pokaz', :id => pole.id}, :class=>'btn btn-xs btn-primary')%>
+				<%= link_to("edycja", {:action => 'edycja', :id => pole.id}, :class=>'btn btn-xs btn-warning')%>
+				<%= link_to("usun", {:action => 'usun', :id => pole.id}, :class=>'btn btn-xs btn-danger')%>
+			</td>
+		</tr>
+		<% end %>
+	</table>
+
+</div>
+

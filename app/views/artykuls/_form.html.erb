@@ -1,0 +1,39 @@
+<%= blad(@artykuly) %>
+
+<table class="table table-stripped">
+	<tr>
+		<th><%= pole.label(:strona_id, "Strona")%></th>
+		<td><%= pole.select(:strona_id, @strona.map{|t|
+			[t.nazwa, t.id]}, :class=>'form-control')%></td>
+	</tr>
+	<tr>
+		<th><%= pole.label(:nazwa)%></th>
+		<td><%= pole.text_field(:nazwa, :class=>'form-control') %> </td>
+	</tr>
+	<tr>
+		<th><%= pole.label(:pozycja)%></th>
+		<td><%= pole.select(:pozycja, 1..@licznik, :class=>'form-control')%></td>
+	</tr>
+	<tr>
+		<th><%= pole.label(:widoczny, "czy jest widoczny ?")%></th>
+		<td><%= pole.check_box(:widoczny)%></td>
+	</tr>
+<% if !@artykuly.zdjecie.blank? %> 
+	<tr>
+		<th>Zdjecie:</th>
+		<td><%= image_tag(@artykuly.zdjecie)%></td>
+	</tr>
+<% end %>	
+	<tr>
+		<th><%= pole.label(:zdjecie, "zdjecie")%></th>
+		<td><%= pole.file_field(:zdjecie)%></td>
+	</tr>
+	<tr>
+		<th><%= pole.label(:created_at, "Utworzony")%></th>
+		<th><%= pole.datetime_select(:created_at, :class => 'form-control')%></th>
+	</tr>
+	<tr>
+		<th><%= pole.label(:zawartosc)%></th>
+		<td><%= pole.text_area(:zawartosc, :class=>'form-control') %> </td>
+	</tr>
+</table>

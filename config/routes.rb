@@ -1,4 +1,34 @@
 Rails.application.routes.draw do
+  get 'zdjencies/index'
+
+  get 'zdjencies/nowa'
+
+  get 'zdjencies/pokaz'
+
+  get 'zdjencies/edycja'
+
+  get 'zdjencies/usun'
+
+  get 'galeries/index'
+
+  get 'galeries/nowa'
+
+  get 'galeries/pokaz'
+
+  get 'galeries/edycja'
+
+  get 'galeries/usun'
+
+  get 'artykuls/index'
+
+  get 'artykuls/nowy'
+
+  get 'artykuls/edycja'
+
+  get 'artykuls/usun'
+
+  get 'artykuls/pokaz'
+
   get 'stronas/index'
 
   get 'stronas/pokaz'

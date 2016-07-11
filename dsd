@@ -1,0 +1,29 @@
+[33mcommit fb259cf8b0133fc3b37ccb7c11c6f20f8eb1b6f9[m
+Author: pa7wel <pa7wel@gmail.com>
+Date:   Tue Jul 5 23:42:50 2016 +0200
+
+    Utworzenie kontrolera i widokow stron
+
+[33mcommit a7e95c26e3dc65e425ea898006c1205d020fe223[m
+Author: pa7wel <pa7wel@gmail.com>
+Date:   Mon Jul 4 20:31:08 2016 +0200
+
+    Utworzenie layout
+
+[33mcommit 27d8b5286a5ab8ba09e53e64074d8e669bb3c447[m
+Author: pa7wel <pa7wel@gmail.com>
+Date:   Mon Jul 4 11:34:27 2016 +0200
+
+    Utworzenie kontrolerow
+
+[33mcommit 83664913dc435ba8078d37941e2f504caaba367c[m
+Author: pa7wel <pa7wel@gmail.com>
+Date:   Sat Jul 2 17:55:01 2016 +0200
+
+    Baza danych - modele
+
+[33mcommit 20eec09d13af700add64d50ba8f9da5e9de87e14[m
+Author: pa7wel <pa7wel@gmail.com>
+Date:   Sat Jul 2 13:16:04 2016 +0200
+
+    Utworzenie projektu
