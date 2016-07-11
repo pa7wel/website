@@ -1,6 +1,11 @@
-<%= blad(@galeria) %>
+<%= blad(@zdjecia) %>
 
 <table class="table table-striped">
+	<tr>
+		<th><%= pole.label(:galerie_id, "Galeria") %></th>
+		<td><%= pole.select(:galerie_id, @galeria.map{|t| [t.nazwa, t.id]}, :class => 'form-control') %></td>
+	</tr>
+
 	<tr>
 		<th><%= pole.label(:nazwa) %></th>
 		<td><%= pole.text_field(:nazwa, :class => 'form-control') %></td>
@@ -10,13 +15,13 @@
 		<td><%= pole.select(:pozycja, 1..@licznik, :class => 'form-control') %></td>
 	</tr>
 	<tr>
-		<th><%= pole.label(:widoczna, "Czy jest widoczny?") %></th>
-		<td><%= pole.check_box(:widoczna) %></td>
+		<th><%= pole.label(:widoczne, "Czy jest widoczne?") %></th>
+		<td><%= pole.check_box(:widoczne) %></td>
 	</tr>
-<% if !@galeria.zdjecie.blank? %>
+<% if !@zdjecia.zdjecie.blank? %>
 	<tr>
 		<th>Zdjęcie:</th>
-		<td><%= image_tag(@galeria.zdjecie) %></td>
+		<td><%= image_tag(@zdjecia.zdjecie) %></td>
 	</tr>
 <% end %>	
 	<tr>

@@ -1,2 +1,18 @@
-<h1>Zdjencies#edycja</h1>
-<p>Find me in app/views/zdjencies/edycja.html.erb</p>
+<div class="hero-unit">
+
+<h1>edycja zdjec: <%= @zdjecia.nazwa %></h1>
+
+	<%= form_for(:zdjecia, :url => { :action => 'aktualizuj', :id => @zdjecia.id}) do |pole| %>
+
+	<%= render(:partial => "form", :locals => {:pole => pole})%>
+
+
+
+<div style="text-align: center;">
+	<%= link_to("powrót", {:action => 'index'}, :class => 'btn btn-primary')%>
+	<%= submit_tag("aktualizuj", :class => 'btn btn-warning' )%>
+</div>
+
+<% end %>
+
+</div>

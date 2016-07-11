@@ -1,22 +1,26 @@
 <div class="hero-unit">
-<h1>Galerie</h1>
+<h1>zdjęcia</h1>
 
-<%= link_to("Dodaj nową zdjecia", {:action => 'nowa'}, :class => 'btn btn-primary')%>
-<p> Ilość galeri <%= @galeria.size %></p>
+<%= link_to("Dodaj nowe zdjecie ", {:action => 'nowe'}, :class => 'btn btn-primary')%>
+<p> Ilość galeri <%= @zdjecia.size %></p>
 
 <table class="table table-stripped">
 	<tr class="info">
 		<th>pozycja</th>
 		<th>nazwa</th>
-		<th>widoczna</th>
+		<th>zdjecie</th>
+		<th>opis[...]</th>
+		<th>widoczne</th>
 		<th>akcja</th>
 	</tr>
 		
-<%= @galeria.each do |pole|%>
+<%= @zdjecia.each do |pole|%>
 	<tr>
 		<td><%= pole.pozycja %></td>
 		<td><%= pole.nazwa %></td>
-		<td class="center"><%= status_widoku(pole.widoczna) %></td>
+		<td><%= image_tag(pole.zdjecie.url(:thumb)) %></td>
+		<td><%= truncate(pole.opis, :length => 50, :omission => "[...]")%></td>
+		<td class="center"><%= status_widoku(pole.widoczne) %></td>
 		<td class="action">
 			<%= link_to("pokaż", {:action => 'pokaz', :id => pole.id }, :class => 'btn btn-xs btn-primary') %>
 			<%= link_to("edycja", {:action => 'edycja', :id => pole.id}, :class => 'btn btn-xs btn-warning')%>

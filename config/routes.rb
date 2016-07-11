@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'dostep/index'
+
+  get 'dostep/login'
+
   get 'zdjencies/index'
 
   get 'zdjencies/nowa'

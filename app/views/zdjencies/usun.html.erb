@@ -1,2 +1,19 @@
-<h1>Zdjencies#usun</h1>
-<p>Find me in app/views/zdjencies/usun.html.erb</p>
+<div class="her-unit">
+
+<h1>usuń zdjęcia</h1>
+
+<%= form_for(:zdjecia, :url => {:action => 'kasuj', :id => @zdjecia.id}) do |pole| %>
+
+<p>Czy na pewno chcesz usunąć zdjęcia ? <%= @zdjecia.nazwa %> </p>
+<p> <%= image_tag(@zdjecia.zdjecie) %> </p>
+
+
+<div style="text-align: center;">
+	<%= link_to("powrót", {:action => 'index'}, :class => 'btn btn-primary')%>
+	<%= submit_tag("usuń", :class => 'btn btn-destroy') %>
+
+
+</div>
+<% end %>
+
+</div>
