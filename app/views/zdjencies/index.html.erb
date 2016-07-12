@@ -1,33 +1,34 @@
 <div class="hero-unit">
-<h1>zdjęcia</h1>
+  <%= link_to("<< Powrót do galerii", {:controller => 'galeries', :action => 'index'}, :class => 'btn btn-xs btn-default') %>
+<h1>Zdjęcia</h1>
 
-<%= link_to("Dodaj nowe zdjecie ", {:action => 'nowe'}, :class => 'btn btn-primary')%>
-<p> Ilość galeri <%= @zdjecia.size %></p>
+<%= link_to("Dodaj nowe zdjęcie", {:action => 'nowe', :galerie_id => @galerie.id}, :class => 'btn btn-mini btn-primary')%>
 
-<table class="table table-stripped">
+  <p style="text-align: right;">Ilość zdjęć: <%= @zdjecia.size %></p>
+
+  <table class="table table-striped">
 	<tr class="info">
 		<th>pozycja</th>
 		<th>nazwa</th>
-		<th>zdjecie</th>
+		<th>zdjęcie</th>
 		<th>opis[...]</th>
 		<th>widoczne</th>
 		<th>akcja</th>
 	</tr>
-		
-<%= @zdjecia.each do |pole|%>
+<% @zdjecia.each do |zdjecie| %>	
 	<tr>
-		<td><%= pole.pozycja %></td>
-		<td><%= pole.nazwa %></td>
-		<td><%= image_tag(pole.zdjecie.url(:thumb)) %></td>
-		<td><%= truncate(pole.opis, :length => 50, :omission => "[...]")%></td>
-		<td class="center"><%= status_widoku(pole.widoczne) %></td>
-		<td class="action">
-			<%= link_to("pokaż", {:action => 'pokaz', :id => pole.id }, :class => 'btn btn-xs btn-primary') %>
-			<%= link_to("edycja", {:action => 'edycja', :id => pole.id}, :class => 'btn btn-xs btn-warning')%>
-			<%= link_to("usuń", {:action => 'usun', :id => pole.id}, :class => 'btn btn-xs btn-danger')%>	
+		<td><%= zdjecie.pozycja %></td>
+		<td><%= zdjecie.nazwa %></td>
+		<td><%= image_tag zdjecie.zdjecie.url(:thumb) %></td>
+		<td><%= truncate(zdjecie.opis, :length => 50, :omission => "[...]")%></td>
+		<td class="center"><%= status_widoku(zdjecie.widoczne) %></td>
+		<td  class="actions">
+			<%= link_to("Pokaż", {:action => 'pokaz', :id => zdjecie.id, :galerie_id => @galerie.id}, :class => 'btn btn-xs btn-default') %>
+			<%= link_to("Edycja", {:action => 'edycja', :id => zdjecie.id, :galerie_id => @galerie.id}, :class => 'btn btn-xs btn-primary') %>			
+			<%= link_to("Usuń",  {:action => 'usun', :id => zdjecie.id, :galerie_id => @galerie.id}, :class => 'btn btn-xs btn-danger') %>			
 		</td>
 	</tr>
 <% end %>
-</table>
 
+</table>
 </div>

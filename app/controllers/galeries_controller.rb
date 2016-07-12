@@ -1,8 +1,8 @@
 class GaleriesController < ApplicationController
 
+  layout 'admin'
 
-layout 'admin'
-before_action :sprawdz_logowanie
+  before_action :sprawdz_logowanie
 
   def index
     @galeria = Galerie.sortuj
@@ -50,9 +50,10 @@ before_action :sprawdz_logowanie
 
   def kasuj
     galeria = Galerie.find(params[:id]).destroy
-    flash[:notice] = "Galeria {#@galeria.nazwa}została usunięta." 
-    redirect_to(:action => 'index')
+    flash[:notice] = "Galeria #{galeria.nazwa} została pomyślnie usunięta"
+    redirect_to(:action => "index")
   end
+
 
   def galeria_parametry
     params.require(:galeria).permit(:nazwa, :pozycja, :widoczna, :opis, :zdjecie)

@@ -1,47 +1,48 @@
 <div class="hero-unit">
-<h1>Pokaż zdjecia</h1>
-
-<table class="table table-stripped">
+<h1>Pokaż Zdjęcie </h1>
+ <table class="table table-striped">
 	<tr>
-		<th>nazwa galeri</th>
+		<th>Nazwa Galerii</th>
 		<td><%= @zdjecia.galerie.nazwa %></td>
 	</tr>
+
 	<tr>
-		<th>nazwa zdjęcia</th>
+		<th>Nazwa Zdjęcia</th>
 		<td><%= @zdjecia.nazwa %></td>
-	</tr>	
+	</tr>
 	<tr>
-		<th>pozycja</th>
+		<th>Pozycja</th>
 		<td><%= @zdjecia.pozycja %></td>
-	</tr>	
+	</tr>
 	<tr>
-		<th>czy widoczna ? </th>
+		<th>Czy widoczne?</th>
 		<td><%= @zdjecia.widoczne ? 'Tak' : 'Nie' %></td>
-	</tr>	
-	
+	</tr>
 	<tr>
-		<th>opis:</th>
+		<th>Opis:</th>
 		<td><%= @zdjecia.opis %></td>
-	</tr>	
+	</tr>		
 	<tr>
-		<th>dodane:</th>
+		<th>Dodane:</th>
 		<td><%= @zdjecia.created_at %></td>
 	</tr>
 	<tr>
-		<th>aktualizacja:</th>
+		<th>Aktualizacja:</th>
 		<td><%= @zdjecia.updated_at %></td>
 	</tr>
 	<tr>
-		<th>zdjęcie</th>
+		<th>Zdjęcie:</th>
 		<td><%= image_tag(@zdjecia.zdjecie) %></td>
-	</tr>
+	</tr>	
 	<tr>
-		<th>miniaturka</th>
+		<th>Miniaturka:</th>
 		<td><%= image_tag(@zdjecia.zdjecie.url(:thumb)) %></td>
 	</tr>
-</table>>
-
-<div style = "text-align: center;">
-<%= link_to("powrót", {:action => 'index'}, :aclass => 'btn btn-success') %>
+</table>
+<div style="text-align: center;">
+	<%= link_to("Powrót", {:action => 'index', :galerie_id => @galerie.id}, :class => 'btn btn-primary')%>
 </div>
-</div> 
+</div>
+
+
+

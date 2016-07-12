@@ -1,7 +1,7 @@
 <div class="hero-unit">
 <h1>Usunięcie Artykułu</h1>
 
-<%= form_for(:artykuly, :url => {:action => 'kasuj', :id => @artykuly.id}) do |pole| %>
+<%= form_for(:artykuly, :url => {:action => 'kasuj', :id => @artykuly.id, :strona_id => @strony.id}) do |pole| %>
 
 <p>Czy na pewno mam usunąć artykuł?</p>
 

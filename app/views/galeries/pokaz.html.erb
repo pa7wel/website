@@ -1,39 +1,40 @@
 <div class="hero-unit">
-<h1>Pokaż galerię</h1>
-
-<table class="table table-stripped">
+<h1>Pokaż Galerię </h1>
+ <table class="table table-striped">
 	<tr>
-		<th>nazwa</th>
+		<th>Nazwa</th>
 		<td><%= @galeria.nazwa %></td>
-	</tr>	
+	</tr>
 	<tr>
-		<th>pozycja</th>
+		<th>Pozycja</th>
 		<td><%= @galeria.pozycja %></td>
-	</tr>	
+	</tr>
 	<tr>
-		<th>czy widoczna ? </th>
+		<th>Czy widoczna?</th>
 		<td><%= @galeria.widoczna ? 'Tak' : 'Nie' %></td>
-	</tr>	
+	</tr>
 	<tr>
-		<th>zdjęcie</th>
+		<th>Zdjęcie:</th>
 		<td><%= image_tag(@galeria.zdjecie) %></td>
-	</tr>	
+	</tr>
 	<tr>
-		<th>opis:</th>
+		<th>Opis:</th>
 		<td><%= @galeria.opis %></td>
-	</tr>	
+	</tr>		
 	<tr>
-		<th>utworzona:</th>
+		<th>Utworzona:</th>
 		<td><%= @galeria.created_at %></td>
 	</tr>
 	<tr>
-		<th>aktualizacja:</th>
+		<th>Aktualizacja:</th>
 		<td><%= @galeria.updated_at %></td>
 	</tr>
 
-</table>>
-
-<div style = "text-align: center;">
-<%= link_to("powrót", {:action => 'index'}, :aclass => 'btn btn-success') %>
+</table>
+<div style="text-align: center;">
+	<%= link_to("Powrót", {:action => 'index'}, :class => 'btn btn-primary')%>
 </div>
-</div> 
+</div>
+
+
+

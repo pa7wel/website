@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Szkolenia <%= " | #{@tytul_strony}" if @tytul_strony %></title>
+    <%= stylesheet_link_tag('application', :media => 'all') %>
+    <%= javascript_include_tag('application') %>
+</head>
+<body>
+
+<!-- nawigacja poczatek -->
+	<%= render(:partial => "menu") %>
+<!-- nawigacja koniec -->
+
+
+<!-- tresc strony - poczatek-->
+  <div id="content">
+    <%= yield %>
+  </div>
+
+<!-- tresc strony koniec -->
+
+
+
+<!-- stopka poczatek -->
+   <div id="footer">
+   	<br> Strona testowa - nauka rails :) </div>
+   </div>
+
+</body>
+</html>

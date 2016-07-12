@@ -1,15 +1,14 @@
 <div class="hero-unit">
-<h1>Nowe zdjęcie</h1>
+<h1>Nowe Zdjęcie</h1>
 
-<%= form_for(:zdjecia, :url => {:action => 'utworz'}) do |pole| %>
+<%= form_for(:zdjecia, :url => {:action => 'utworz', :galerie_id => @galerie.id}) do |pole| %>
 
 <%= render(:partial => "form", :locals => {:pole => pole}) %>
 
 <div style="text-align: center;">
-	<%= link_to("powrót", {:action => 'index'}, :class => 'btn btn-primary')%>
-	<%= submit_tag("utwórz", :class => 'btn btn-success')%>
+	<%= link_to("Powrót", {:action => 'index', :galerie_id => @galerie.id}, :class => 'btn btn-warning')%>
+	<%= submit_tag("Utwórz", :class => 'btn  btn-primary') %>
 </div>
 
 <% end %>
-
 </div>

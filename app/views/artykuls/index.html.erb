@@ -1,32 +1,29 @@
-<div class="her-unit">
+<div class="hero-unit">
+  <%= link_to("<< Powrót do strony", {:controller => 'stronas', :action => 'index', :kategoria_id => @strony.kategorie.id}, :class => 'btn btn-xs btn-default') %>
+  <h1>Artykuły</h1>
+  <%= link_to("Dodaj nowy artykuł", {:action => 'nowy', :strona_id => @strony.id}, :class => 'btn btn-mini btn-primary')%>
+  <p style="text-align: right;">Ilość artykułów: <%= @artykuly.size %></p>
+  <table class="table table-striped">
+	<tr class="info">
+		<th>pozycja</th>
+		<th>strona</th>
+		<th>tytuł artykułu</th>
+		<th>widoczny</th>
+		<th>akcja</th>
+	</tr>
+<% @artykuly.each do |artykul| %>	
+	<tr>
+		<td><%= artykul.pozycja %></td>
+		<td><%= artykul.strona.nazwa %></td>
+		<td><%= artykul.nazwa %></td>
+		<td class="center"><%= status_widoku(artykul.widoczny) %></td>
+		<td  class="actions">
+			<%= link_to("Pokaż", {:action => 'pokaz', :id => artykul.id, :strona_id => @strony.id}, :class => 'btn btn-xs btn-default') %>
+			<%= link_to("Edycja", {:action => 'edycja', :id => artykul.id, :strona_id => @strony.id}, :class => 'btn btn-xs btn-primary') %>			
+			<%= link_to("Usuń",  {:action => 'usun', :id => artykul.id, :strona_id => @strony.id}, :class => 'btn btn-xs btn-danger') %>			
+		</td>
+	</tr>
+<% end %>
 
-<h1>Artykuly</h1>
-
-	<%= link_to("nowy artykul", {:action => 'nowy'}, :class => 'btn btn-primary')%>
-	<p style="text-align: right;">ilosc artykulow: <%= @artykuly.size%></p>
-
-	<table class="table table-stripped">
-		<tr class="info">
-			<th>pozycja</th>
-			<th>strona</th>
-			<th>tytul artykulu</th>
-			<th>widoczny</th>
-			<th>akcja</th>
-		</tr>
-		<%= @artykuly.each do |pole| %>
-		<tr>
-			<td><%= pole.pozycja %></td>
-			<td><%= pole.strona.nazwa %></td>
-			<td><%= pole.nazwa %></td>
-			<td class="center"><%= status_widoku(pole.widoczny)%></td>
-			<td class="actions">
-				<%= link_to("pokaz", {:action => 'pokaz', :id => pole.id}, :class=>'btn btn-xs btn-primary')%>
-				<%= link_to("edycja", {:action => 'edycja', :id => pole.id}, :class=>'btn btn-xs btn-warning')%>
-				<%= link_to("usun", {:action => 'usun', :id => pole.id}, :class=>'btn btn-xs btn-danger')%>
-			</td>
-		</tr>
-		<% end %>
-	</table>
-
+</table>
 </div>
-

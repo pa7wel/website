@@ -9,7 +9,7 @@
 
 <div>
 	<%= submit_tag("Usuń", :class => 'btn btn-danger')%>
-	<%= link_to("powrót", {:action => 'index'}, :class => 'btn btn-primary')%>
+	<%= link_to("powrót", {:action => 'index', :kategoria_id => @kategorie.id}, :class => 'btn btn-primary')%>
 </div>
 
 

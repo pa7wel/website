@@ -1,8 +1,8 @@
 class Galerie < ApplicationRecord
-	has_many :zdjencies
+	has_many :zdjecies, class_name: "Zdjecie"
 
-has_attached_file :zdjecie, 
-		styles: { medium: "600x600>", thumb: "200x200>" }
+    has_attached_file :zdjecie, 
+		    styles: { medium: "600x600>", thumb: "200x200>" }
 
   	validates_attachment_content_type :zdjecie, 
   			:content_type =>  /^image\/(png|git|jpeg)/,

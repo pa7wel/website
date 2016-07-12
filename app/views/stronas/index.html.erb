@@ -1,35 +1,35 @@
-<div class='hero-unit'>
+<div class="hero-unit">
+  <%= link_to("<< Powrót do kategorii", {:controller => 'kategories', :action => 'index'}, :class => 'btn btn-xs btn-default') %>	
 <h1>Strony</h1>
 
-	<%= link_to("dodaj nowa strone", {:action => 'nowa'}, 
-		:class => "btn btn-primary") %>
+<%= link_to("Dodaj nowa strone", {:action => 'nowa', :kategoria_id => @kategorie.id}, :class => 'btn btn-mini btn-primary')%>
 
-	<p style="text-align: right;"> Ilosc stron: <%= @stronas.size%></p>
+  <p style="text-align: right;">Ilość stron: <%= @stronas.size %></p>
 
-	<table class="table table-striped">
-		<tr class="info">
-			<th>pozycja</th>
-			<th>kategoria</th>
-			<th>nazwa strony</th>
-			<th>widoczna</th>
-			<th>artykuly</th>
-			<th>akcja</th>
-		</tr>
-	<%= @stronas.each do |str|%>	
-		<tr>
-			<th><%= str.pozycja%></th>
-			<th><%= str.kategorie.nazwa %></th>
-			<th><%= str.nazwa %></th>
-			<th class="center"><%= status_widoku(str.widoczna) %></th>
-			<th class="center"><%= str.artykuls.size %></th>
-			<th class="actions">
-				<%= link_to("wyświetl", {:action => 'pokaz', :id => str.id }, :class => 'btn btn-xs btn btn-default')%>
-				<%= link_to("edytuj", {:action => 'edycja', :id => str.id }, :class => 'btn btn-xs btn btn-primary') %>
-				<%= link_to("usun", {:action => 'usun', :id => str.id}, :class => 'btn btn-xs btn btn-warning') %>
-			</th>
-		</tr>
-		<% end %>
-	</table>
+  <table class="table table-striped">
+	<tr class="info">
+		<th>pozycja</th>
+		<th>kategoria</th>
+		<th>nazwa strony</th>
+		<th>widoczna</th>
+		<th>artykuły</th>
+		<th>akcja</th>
+	</tr>
+<% @stronas.each do |strona| %>	
+  <tr>
+	<td><%= strona.pozycja %></td>
+	<td><%= strona.kategorie.nazwa %></td>
+	<td><%= strona.nazwa %></td>
+	<td class="center"><%= status_widoku(strona.widoczna) %></td>
+	<td class="center"><%= strona.artykuls.size %></td>
+	<td  class="actions">
+	  <%= link_to("Artykuły", {:controller => 'artykuls', :strona_id => strona.id}, :class => 'btn btn-xs btn-success') %>
+	  <%= link_to("Pokaż", {:action => 'pokaz', :id => strona.id, :kategoria_id => @kategorie.id}, :class => 'btn btn-xs btn-default') %>
+	  <%= link_to("Edycja", {:action => 'edycja', :id => strona.id, :kategoria_id => @kategorie.id}, :class => 'btn btn-xs btn-primary') %>			
+	  <%= link_to("Usuń",  {:action => 'usun', :id => strona.id, :kategoria_id => @kategorie.id}, :class => 'btn btn-xs btn-danger') %>			
+	</td>
+  </tr>
+<% end %>
 
+</table>
 </div>
-
